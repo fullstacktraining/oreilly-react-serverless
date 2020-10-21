@@ -1,0 +1,28 @@
+service: read-image-data
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  timeout: 10
+  environment:
+    CLOUDINARY_API_KEY: ''
+    CLOUDINARY_API_SECRET: ''
+    CLOUDINARY_CLOUD_NAME: ''
+    VEHICLE_API_KEY: ''
+
+functions:
+  app:
+    handler: index.handler
+    events:
+      - http:
+          path: /upload
+          method: post
+          cors: true
+plugins:
+  - serverless-apigw-binary
+
+custom:
+  apigwBinary:
+    types:
+      - '*/*'

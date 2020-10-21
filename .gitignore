@@ -1,0 +1,4 @@
+.vercel
+.serverless
+.env
+node_modules/

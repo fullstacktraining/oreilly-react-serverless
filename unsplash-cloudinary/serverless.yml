@@ -1,0 +1,20 @@
+service: unsplash-cloudinary
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  environment:
+    CLOUDINARY_API_KEY: ''
+    CLOUDINARY_API_SECRET: ''
+    CLOUDINARY_CLOUD_NAME: ''
+    UNSPLASH_API_KEY: ''
+
+functions:
+  image:
+    handler: handler.image
+    events:
+      - http:
+          path: image
+          method: get
+          cors: true
