@@ -1,15 +1,13 @@
-
 service: chaining # NOTE: update this with your service name
 provider:
   name: aws
-  runtime: nodejs8.10
+  runtime: nodejs12.x
   iamRoleStatements:
     - Effect: Allow
       Action:
         - lambda:InvokeFunction
         - lambda:InvokeAsync
-      Resource: "*"
-
+      Resource: '*'
 
 functions:
   hello:
